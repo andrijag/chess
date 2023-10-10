@@ -10,7 +10,12 @@ namespace chessclock
         changeState(stopwatch, std::make_unique<RunningState>());
     }
 
-    void StoppedState::stop(Stopwatch *stopwatch) {}
+    void StoppedState::stop(Stopwatch *stopwatch)
+    {
+    }
 
-    std::chrono::milliseconds StoppedState::readTimeInMillis(const Stopwatch *stopwatch) { return getElapsedTime(stopwatch); }
+    std::chrono::milliseconds StoppedState::readTimeInMillis(const Stopwatch *stopwatch)
+    {
+        return getElapsedTime(stopwatch);
+    }
 }

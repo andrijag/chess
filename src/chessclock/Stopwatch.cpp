@@ -4,13 +4,24 @@
 
 namespace chessclock
 {
-    Stopwatch::Stopwatch() : startTime{}, elapsedTime{}, state{std::make_unique<StoppedState>()} {}
+    Stopwatch::Stopwatch() : startTime{}, elapsedTime{}, state{std::make_unique<StoppedState>()}
+    {
+    }
 
-    void Stopwatch::start() { state->start(this); }
+    void Stopwatch::start()
+    {
+        state->start(this);
+    }
 
-    void Stopwatch::stop() { state->stop(this); }
+    void Stopwatch::stop()
+    {
+        state->stop(this);
+    }
 
-    std::chrono::milliseconds Stopwatch::readTimeInMillis() const { return state->readTimeInMillis(this); }
+    std::chrono::milliseconds Stopwatch::readTimeInMillis() const
+    {
+        return state->readTimeInMillis(this);
+    }
 
     void Stopwatch::reset()
     {

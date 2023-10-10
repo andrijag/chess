@@ -4,7 +4,9 @@
 
 namespace chessclock
 {
-    void RunningState::start(Stopwatch *stopwatch) {}
+    void RunningState::start(Stopwatch *stopwatch)
+    {
+    }
 
     void RunningState::stop(Stopwatch *stopwatch)
     {
