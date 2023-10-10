@@ -1,0 +1,1 @@
+add_library(ChessClock ChessClock.cpp Stopwatch.cpp StopwatchState.cpp RunningState.cpp StoppedState.cpp)

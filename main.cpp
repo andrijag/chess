@@ -1,5 +1,19 @@
+#include <chrono>
 #include <iostream>
+#include <thread>
 
-int main(){
-    std::cout << "chess" << "\n";
+#include "ChessClock.h"
+
+int main()
+{
+    ChessClock chessClock{};
+    chessClock.start();
+    std::this_thread::sleep_for(std::chrono::milliseconds{33});
+    chessClock.stopWhite();
+    std::this_thread::sleep_for(std::chrono::milliseconds{100});
+    chessClock.stopBlack();
+    std::this_thread::sleep_for(std::chrono::milliseconds{33});
+    chessClock.stop();
+    std::cout << chessClock.readWhiteTimeInMillis().count() << "\n";
+    std::cout << chessClock.readBlackTimeInMillis().count() << "\n";
 }
