@@ -3,12 +3,15 @@
 
 #include "StopwatchState.h"
 
-class StoppedState : public StopwatchState
+namespace chessclock
 {
-public:
-    void start(Stopwatch *stopwatch) override;
-    void stop(Stopwatch *stopwatch) override;
-    std::chrono::milliseconds readTimeInMillis(const Stopwatch *stopwatch) override;
-};
+    class StoppedState : public StopwatchState
+    {
+    public:
+        void start(Stopwatch *stopwatch) override;
+        void stop(Stopwatch *stopwatch) override;
+        std::chrono::milliseconds readTimeInMillis(const Stopwatch *stopwatch) override;
+    };
+}
 
 #endif

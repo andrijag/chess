@@ -6,7 +6,7 @@
 
 int main()
 {
-    ChessClock chessClock{};
+    chessclock::ChessClock chessClock{};
     chessClock.start();
     std::this_thread::sleep_for(std::chrono::milliseconds{33});
     chessClock.stopWhite();
