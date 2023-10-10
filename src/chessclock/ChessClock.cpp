@@ -4,7 +4,7 @@ namespace chessclock
 {
     void ChessClock::start()
     {
-        whiteStopwatch.start();
+        stopBlack();
     }
 
     void ChessClock::stopWhite()
