@@ -14,7 +14,7 @@ namespace chessclock
         virtual ~StopwatchState() = default;
         virtual void start(Stopwatch *) = 0;
         virtual void stop(Stopwatch *) = 0;
-        virtual std::chrono::milliseconds readTimeInMillis(const Stopwatch *) = 0;
+        virtual std::chrono::milliseconds readTimeInMillis(const Stopwatch *) const = 0;
 
     protected:
         std::chrono::time_point<std::chrono::system_clock> getStartTime(const Stopwatch *) const;

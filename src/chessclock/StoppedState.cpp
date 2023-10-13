@@ -14,7 +14,7 @@ namespace chessclock
     {
     }
 
-    std::chrono::milliseconds StoppedState::readTimeInMillis(const Stopwatch *stopwatch)
+    std::chrono::milliseconds StoppedState::readTimeInMillis(const Stopwatch *stopwatch) const
     {
         return getElapsedTime(stopwatch);
     }

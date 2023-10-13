@@ -10,7 +10,7 @@ namespace chessclock
     public:
         void start(Stopwatch *stopwatch) override;
         void stop(Stopwatch *stopwatch) override;
-        std::chrono::milliseconds readTimeInMillis(const Stopwatch *stopwatch) override;
+        std::chrono::milliseconds readTimeInMillis(const Stopwatch *stopwatch) const override;
     };
 }
 
