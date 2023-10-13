@@ -4,29 +4,29 @@
 
 namespace chessclock
 {
-    std::chrono::time_point<std::chrono::system_clock> StopwatchState::getStartTime(const Stopwatch *stopwatch) const
+    std::chrono::time_point<std::chrono::system_clock> StopwatchState::getStartTime(const Stopwatch &stopwatch) const
     {
-        return stopwatch->getStartTime();
+        return stopwatch.getStartTime();
     }
 
-    void StopwatchState::setStartTime(Stopwatch *stopwatch, std::chrono::time_point<std::chrono::system_clock> startTime)
+    void StopwatchState::setStartTime(Stopwatch &stopwatch, std::chrono::time_point<std::chrono::system_clock> startTime)
     {
-        stopwatch->setStartTime(startTime);
+        stopwatch.setStartTime(startTime);
     }
 
-    std::chrono::milliseconds StopwatchState::getElapsedTime(const Stopwatch *stopwatch) const
+    std::chrono::milliseconds StopwatchState::getElapsedTime(const Stopwatch &stopwatch) const
     {
-        return stopwatch->getElapsedTime();
+        return stopwatch.getElapsedTime();
     }
 
-    void StopwatchState::setElapsedTime(Stopwatch *stopwatch, std::chrono::milliseconds elapsedTime)
+    void StopwatchState::setElapsedTime(Stopwatch &stopwatch, std::chrono::milliseconds elapsedTime)
     {
-        stopwatch->setElapsedTime(elapsedTime);
+        stopwatch.setElapsedTime(elapsedTime);
     }
 
-    void StopwatchState::changeState(Stopwatch *stopwatch, std::unique_ptr<StopwatchState> state)
+    void StopwatchState::changeState(Stopwatch &stopwatch, std::unique_ptr<StopwatchState> state)
     {
-        stopwatch->changeState(std::move(state));
+        stopwatch.changeState(std::move(state));
     }
 
     std::chrono::time_point<std::chrono::system_clock> getCurrentTime()

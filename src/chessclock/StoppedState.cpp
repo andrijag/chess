@@ -1,20 +1,22 @@
 #include "StoppedState.h"
 
+#include <memory>
+
 #include "RunningState.h"
 
 namespace chessclock
 {
-    void StoppedState::start(Stopwatch *stopwatch)
+    void StoppedState::start(Stopwatch &stopwatch)
     {
         setStartTime(stopwatch, getCurrentTime());
         changeState(stopwatch, std::make_unique<RunningState>());
     }
 
-    void StoppedState::stop(Stopwatch *stopwatch)
+    void StoppedState::stop(Stopwatch &stopwatch)
     {
     }
 
-    std::chrono::milliseconds StoppedState::readTimeInMillis(const Stopwatch *stopwatch) const
+    std::chrono::milliseconds StoppedState::readTimeInMillis(const Stopwatch &stopwatch) const
     {
         return getElapsedTime(stopwatch);
     }

@@ -10,17 +10,17 @@ namespace chessclock
 
     void Stopwatch::start()
     {
-        state->start(this);
+        state->start(*this);
     }
 
     void Stopwatch::stop()
     {
-        state->stop(this);
+        state->stop(*this);
     }
 
     std::chrono::milliseconds Stopwatch::readTimeInMillis() const
     {
-        return state->readTimeInMillis(this);
+        return state->readTimeInMillis(*this);
     }
 
     void Stopwatch::reset()
