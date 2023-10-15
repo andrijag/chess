@@ -20,10 +20,10 @@ namespace chessclock
 
     std::chrono::milliseconds Stopwatch::readTimeInMillis() const
     {
-        auto runningTime = elapsedTime;
+        auto totalElapsedTime = elapsedTime;
         if (isRunning)
-            runningTime += std::chrono::duration_cast<std::chrono::milliseconds>(getCurrentTime() - startTime);
-        return runningTime;
+            totalElapsedTime += std::chrono::duration_cast<std::chrono::milliseconds>(getCurrentTime() - startTime);
+        return totalElapsedTime;
     }
 
     void Stopwatch::reset()
