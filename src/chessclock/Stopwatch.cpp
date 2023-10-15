@@ -1,57 +1,40 @@
 #include "Stopwatch.h"
 
-#include "StoppedState.h"
-
 namespace chessclock
 {
-    Stopwatch::Stopwatch() : startTime{}, elapsedTime{}, state{std::make_unique<StoppedState>()}
-    {
-    }
-
     void Stopwatch::start()
     {
-        state->start(*this);
+        if (isRunning)
+            return;
+        startTime = getCurrentTime();
+        isRunning = true;
     }
 
     void Stopwatch::stop()
     {
-        state->stop(*this);
+        if (!isRunning)
+            return;
+        elapsedTime = readTimeInMillis();
+        isRunning = false;
     }
 
     std::chrono::milliseconds Stopwatch::readTimeInMillis() const
     {
-        return state->readTimeInMillis(*this);
+        auto runningTime = elapsedTime;
+        if (isRunning)
+            runningTime += std::chrono::duration_cast<std::chrono::milliseconds>(getCurrentTime() - startTime);
+        return runningTime;
     }
 
     void Stopwatch::reset()
     {
         startTime = std::chrono::time_point<std::chrono::system_clock>{};
         elapsedTime = std::chrono::milliseconds{};
-        state = std::make_unique<StoppedState>();
+        isRunning = false;
     }
 
-    std::chrono::time_point<std::chrono::system_clock> Stopwatch::getStartTime() const
+    std::chrono::time_point<std::chrono::system_clock> getCurrentTime()
     {
-        return this->startTime;
-    }
-
-    void Stopwatch::setStartTime(std::chrono::time_point<std::chrono::system_clock> startTime)
-    {
-        this->startTime = startTime;
-    }
-
-    std::chrono::milliseconds Stopwatch::getElapsedTime() const
-    {
-        return this->elapsedTime;
-    }
-
-    void Stopwatch::setElapsedTime(std::chrono::milliseconds elapsedTime)
-    {
-        this->elapsedTime = elapsedTime;
-    }
-
-    void Stopwatch::changeState(std::unique_ptr<StopwatchState> state)
-    {
-        this->state = std::move(state);
+        return std::chrono::system_clock::now();
     }
 }
