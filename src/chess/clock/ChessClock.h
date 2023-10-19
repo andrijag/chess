@@ -5,7 +5,7 @@
 
 #include "Stopwatch.h"
 
-namespace chessclock
+namespace chess
 {
     class ChessClock
     {

@@ -1,6 +1,6 @@
 #include "ChessClock.h"
 
-namespace chessclock
+namespace chess
 {
     void ChessClock::start()
     {

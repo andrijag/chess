@@ -1,6 +1,6 @@
 #include "Stopwatch.h"
 
-namespace chessclock
+namespace chess
 {
     void Stopwatch::start()
     {

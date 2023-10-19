@@ -3,7 +3,7 @@
 
 #include <chrono>
 
-namespace chessclock
+namespace chess
 {
     class Stopwatch
     {
