@@ -6,12 +6,14 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 add_subdirectory(src/chess/clock)
+add_subdirectory(src/chess/set)
 
 add_executable(Chess main.cpp)
 
-target_link_libraries(Chess PUBLIC ChessClock)
+target_link_libraries(Chess PUBLIC ChessClock ChessSet)
 
 target_include_directories(Chess PUBLIC
     "${PROJECT_BINARY_DIR}"
     "${PROJECT_SOURCE_DIR}/src/chess/clock"
+    "${PROJECT_SOURCE_DIR}/src/chess/set"
 )
