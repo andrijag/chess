@@ -10,6 +10,8 @@ namespace chess
     {
     public:
         King(Color);
+
+        std::unique_ptr<ChessPiece> clone() const override;
     };
 }
 
