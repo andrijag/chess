@@ -3,6 +3,7 @@
 
 #include <memory>
 
+#include "ChessPiece.h"
 #include "Color.h"
 
 namespace chess
@@ -13,7 +14,14 @@ namespace chess
     {
     private:
         Color color;
-        std::unique_ptr<int> chessPiece;
+        std::unique_ptr<ChessPiece> chessPiece;
+
+    public:
+        Square() = default;
+        ~Square() = default;
+
+        Square(const Square &);
+        Square &operator=(const Square &);
 
     private:
         friend Chessboard;
