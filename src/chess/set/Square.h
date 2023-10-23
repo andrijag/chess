@@ -23,6 +23,9 @@ namespace chess
         Square(const Square &);
         Square &operator=(const Square &);
 
+        Square(Square &&) = default;
+        Square &operator=(Square &&) = default;
+
     private:
         friend Chessboard;
         void setColor(Color);
