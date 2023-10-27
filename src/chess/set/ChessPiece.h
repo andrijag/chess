@@ -17,6 +17,12 @@ namespace chess
         ChessPiece(Color, double);
         virtual ~ChessPiece() = default;
 
+        ChessPiece(const ChessPiece &) = delete;
+        ChessPiece &operator=(const ChessPiece &) = delete;
+
+        ChessPiece(ChessPiece &&) = delete;
+        ChessPiece &operator=(ChessPiece &&) = delete;
+
         virtual std::unique_ptr<ChessPiece> clone() const = 0;
     };
 }
