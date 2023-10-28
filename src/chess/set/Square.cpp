@@ -20,4 +20,4 @@ namespace chess
     {
         this->color = color;
     }
-};
+}

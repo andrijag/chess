@@ -8,8 +8,8 @@ namespace chess
     class Stopwatch
     {
     private:
-        std::chrono::time_point<std::chrono::system_clock> startTime{std::chrono::system_clock::now()};
-        std::chrono::milliseconds elapsedTime{std::chrono::milliseconds::zero()};
+        std::chrono::time_point<std::chrono::system_clock> startTime;
+        std::chrono::milliseconds elapsedTime{0};
         bool isRunning{false};
 
     public:

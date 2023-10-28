@@ -7,8 +7,8 @@
 
 int main()
 {
-    chess::Chessboard chessboard{};
-    chess::ChessClock chessClock{};
+    chess::Chessboard chessboard;
+    chess::ChessClock chessClock;
     chessClock.start();
     std::this_thread::sleep_for(std::chrono::milliseconds{33});
     chessClock.stopWhite();

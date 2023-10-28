@@ -13,7 +13,7 @@ namespace chess
     class Square
     {
     private:
-        Color color{};
+        Color color;
         std::unique_ptr<ChessPiece> chessPiece{nullptr};
 
     public:

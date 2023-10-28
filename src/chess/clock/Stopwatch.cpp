@@ -28,8 +28,7 @@ namespace chess
 
     void Stopwatch::reset()
     {
-        startTime = std::chrono::system_clock::now();
-        elapsedTime = std::chrono::milliseconds::zero();
+        elapsedTime = std::chrono::milliseconds{0};
         isRunning = false;
     }
 
