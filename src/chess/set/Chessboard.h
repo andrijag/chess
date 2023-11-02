@@ -2,7 +2,9 @@
 #define CHESSBOARD_H
 
 #include <array>
+#include <memory>
 
+#include "Position.h"
 #include "Square.h"
 
 namespace chess
@@ -16,6 +18,11 @@ namespace chess
 
     public:
         Chessboard();
+        void place(Position, std::unique_ptr<ChessPiece>);
+        void move(Position, Position);
+
+    private:
+        Square &getSquare(Position);
     };
 }
 
