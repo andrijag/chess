@@ -9,7 +9,7 @@ namespace chess
     class King : public ChessPiece
     {
     public:
-        King(Color);
+        explicit King(Color);
 
         std::unique_ptr<ChessPiece> clone() const override;
     };

@@ -9,7 +9,7 @@ namespace chess
     class Pawn : public ChessPiece
     {
     public:
-        Pawn(Color);
+        explicit Pawn(Color);
 
         std::unique_ptr<ChessPiece> clone() const override;
     };
