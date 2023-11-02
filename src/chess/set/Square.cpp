@@ -20,4 +20,14 @@ namespace chess
     {
         this->color = color;
     }
+
+    void Square::setChessPiece(std::unique_ptr<ChessPiece> chessPiece)
+    {
+        this->chessPiece = std::move(chessPiece);
+    }
+
+    std::unique_ptr<ChessPiece> Square::getChessPiece()
+    {
+        return std::move(chessPiece);
+    }
 }

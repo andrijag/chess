@@ -29,6 +29,8 @@ namespace chess
     private:
         friend Chessboard;
         void setColor(Color);
+        void setChessPiece(std::unique_ptr<ChessPiece>);
+        std::unique_ptr<ChessPiece> getChessPiece();
     };
 }
 
