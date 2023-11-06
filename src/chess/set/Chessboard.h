@@ -4,6 +4,7 @@
 #include <array>
 #include <memory>
 
+#include "ChessPiece.h"
 #include "Position.h"
 #include "Square.h"
 

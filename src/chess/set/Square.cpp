@@ -26,7 +26,7 @@ namespace chess
         this->chessPiece = std::move(chessPiece);
     }
 
-    std::unique_ptr<ChessPiece> Square::getChessPiece()
+    std::unique_ptr<ChessPiece> Square::getChessPieceOwnership()
     {
         return std::move(chessPiece);
     }

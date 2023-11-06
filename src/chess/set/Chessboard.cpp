@@ -22,7 +22,7 @@ namespace chess
 
     void Chessboard::move(Position from, Position to)
     {
-        auto chessPiece = getSquare(from).getChessPiece();
+        auto chessPiece = getSquare(from).getChessPieceOwnership();
         if (chessPiece)
             place(to, std::move(chessPiece));
     }
