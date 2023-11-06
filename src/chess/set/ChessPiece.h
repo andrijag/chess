@@ -25,6 +25,12 @@ namespace chess
 
         virtual std::unique_ptr<ChessPiece> clone() const = 0;
     };
+
+    template <typename T>
+    std::unique_ptr<T> createChessPiece(Color color)
+    {
+        return std::make_unique<T>(color);
+    }
 }
 
 #endif
