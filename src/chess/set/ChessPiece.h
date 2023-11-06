@@ -17,17 +17,19 @@ namespace chess
         ChessPiece(Color, double);
         virtual ~ChessPiece() = default;
 
-        ChessPiece(const ChessPiece &) = delete;
-        ChessPiece &operator=(const ChessPiece &) = delete;
+    protected:
+        ChessPiece(const ChessPiece &) = default;
+        ChessPiece &operator=(const ChessPiece &) = default;
 
-        ChessPiece(ChessPiece &&) = delete;
-        ChessPiece &operator=(ChessPiece &&) = delete;
+        ChessPiece(ChessPiece &&) = default;
+        ChessPiece &operator=(ChessPiece &&) = default;
 
+    public:
         virtual std::unique_ptr<ChessPiece> clone() const = 0;
     };
 
     template <typename T>
-    std::unique_ptr<T> createChessPiece(Color color)
+    std::unique_ptr<ChessPiece> createChessPiece(Color color)
     {
         return std::make_unique<T>(color);
     }
