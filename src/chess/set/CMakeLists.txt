@@ -1,1 +1,1 @@
-add_library(ChessSet Chessboard.cpp Square.cpp ChessPiece.cpp King.cpp Pawn.cpp)
+add_library(ChessSet Chessboard.cpp Square.cpp ChessPiece.cpp King.cpp Queen.cpp Rook.cpp Bishop.cpp Knight.cpp Pawn.cpp)
