@@ -31,4 +31,9 @@ namespace chess
     {
         return grid.at(at.row).at(at.column);
     }
+
+    bool Chessboard::contains(Position position) const
+    {
+        return (0 < position.row < numberOfRows) && (0 < position.column < numberOfColumns);
+    }
 }

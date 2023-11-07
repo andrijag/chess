@@ -24,6 +24,7 @@ namespace chess
 
     private:
         Square &getSquare(Position);
+        bool contains(Position) const;
     };
 }
 
