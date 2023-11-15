@@ -1,19 +1,17 @@
 cmake_minimum_required(VERSION 3.0.0)
 
-project(Chess VERSION 1.0)
+project(App VERSION 1.0)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-add_subdirectory(src/chess/clock)
-add_subdirectory(src/chess/set)
+add_subdirectory(src/chess)
 
-add_executable(Chess main.cpp)
+add_executable(App main.cpp)
 
-target_link_libraries(Chess PUBLIC ChessClock ChessSet)
+target_link_libraries(App PUBLIC Chess)
 
-target_include_directories(Chess PUBLIC
+target_include_directories(App PUBLIC
     "${PROJECT_BINARY_DIR}"
-    "${PROJECT_SOURCE_DIR}/src/chess/clock"
-    "${PROJECT_SOURCE_DIR}/src/chess/set"
+    "${PROJECT_SOURCE_DIR}/src/chess"
 )
