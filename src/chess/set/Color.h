@@ -9,7 +9,7 @@ namespace chess
         black
     };
 
-    inline Color operator!(const Color color)
+    inline Color operator!(Color color)
     {
         return (color == Color::white) ? Color::black : Color::white;
     }
