@@ -6,6 +6,11 @@ namespace chess
     {
     }
 
+    Color Player::getColor() const
+    {
+        return color;
+    }
+
     void Player::stopTime(ChessClock &chessClock) const
     {
         if (color == Color::white)

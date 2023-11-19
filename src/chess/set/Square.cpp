@@ -16,6 +16,11 @@ namespace chess
         return *this;
     }
 
+    ChessPiece *Square::getChessPiece() const
+    {
+        return chessPiece.get();
+    }
+
     void Square::setColor(Color color)
     {
         this->color = color;

@@ -26,6 +26,7 @@ namespace chess
 
     public:
         virtual std::unique_ptr<ChessPiece> clone() const = 0;
+        Color getColor() const;
     };
 
     template <typename T>

@@ -19,11 +19,12 @@ namespace chess
 
     public:
         Chessboard();
+
         void place(Position, std::unique_ptr<ChessPiece>);
         void move(Position, Position);
+        Square &getSquare(Position);
 
     private:
-        Square &getSquare(Position);
         bool contains(Position) const;
     };
 }

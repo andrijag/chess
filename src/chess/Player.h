@@ -14,6 +14,7 @@ namespace chess
     public:
         explicit Player(Color);
 
+        Color getColor() const;
         void stopTime(ChessClock &) const;
     };
 }

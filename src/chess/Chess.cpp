@@ -10,8 +10,12 @@ namespace chess
 
     void Chess::move(Position from, Position to)
     {
+        auto chessPiece = board.getSquare(from).getChessPiece();
+        if (!chessPiece || chessPiece->getColor() != currentPlayer->getColor())
+            return;
         // TODO
         currentPlayer->stopTime(clock);
+        nextPlayer();
     }
 
     void Chess::nextPlayer()
