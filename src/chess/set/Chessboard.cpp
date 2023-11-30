@@ -34,6 +34,6 @@ namespace chess
 
     bool Chessboard::contains(Position position) const
     {
-        return (0 < position.row < numberOfRows) && (0 < position.column < numberOfColumns);
+        return (0 <= position.row && position.row < numberOfRows) && (0 <= position.column && position.column < numberOfColumns);
     }
 }
