@@ -4,7 +4,7 @@
 
 namespace chess
 {
-    Bishop::Bishop(Color color) : ChessPiece{color, fisher::bishopValue}
+    Bishop::Bishop(Color color) : ChessPiece{color, fischer::bishopValue}
     {
     }
 

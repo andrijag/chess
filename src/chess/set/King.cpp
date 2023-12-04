@@ -4,7 +4,7 @@
 
 namespace chess
 {
-    King::King(Color color) : ChessPiece{color, fisher::kingValue}
+    King::King(Color color) : ChessPiece{color, fischer::kingValue}
     {
     }
 

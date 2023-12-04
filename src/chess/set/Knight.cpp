@@ -4,7 +4,7 @@
 
 namespace chess
 {
-    Knight::Knight(Color color) : ChessPiece{color, fisher::knightValue}
+    Knight::Knight(Color color) : ChessPiece{color, fischer::knightValue}
     {
     }
 

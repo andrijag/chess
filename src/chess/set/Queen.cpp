@@ -4,7 +4,7 @@
 
 namespace chess
 {
-    Queen::Queen(Color color) : ChessPiece{color, fisher::queenValue}
+    Queen::Queen(Color color) : ChessPiece{color, fischer::queenValue}
     {
     }
 

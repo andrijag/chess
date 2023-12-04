@@ -4,7 +4,7 @@
 
 namespace chess
 {
-    Pawn::Pawn(Color color) : ChessPiece{color, fisher::pawnValue}
+    Pawn::Pawn(Color color) : ChessPiece{color, fischer::pawnValue}
     {
     }
 

@@ -4,7 +4,7 @@
 
 namespace chess
 {
-    Rook::Rook(Color color) : ChessPiece{color, fisher::rookValue}
+    Rook::Rook(Color color) : ChessPiece{color, fischer::rookValue}
     {
     }
 
