@@ -32,6 +32,11 @@ namespace chess
         return grid.at(at.row).at(at.column);
     }
 
+    const Square &Chessboard::getSquareView(Position at) const
+    {
+        return grid.at(at.row).at(at.column);
+    }
+
     bool Chessboard::contains(Position position) const
     {
         return (0 <= position.row && position.row < numberOfRows) && (0 <= position.column && position.column < numberOfColumns);

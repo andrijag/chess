@@ -23,8 +23,7 @@ namespace chess
         void place(Position, std::unique_ptr<ChessPiece>);
         void move(Position, Position);
         Square &getSquare(Position);
-
-    private:
+        const Square &getSquareView(Position) const;
         bool contains(Position) const;
     };
 }
