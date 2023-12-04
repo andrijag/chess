@@ -5,7 +5,7 @@
 
 namespace chess
 {
-    namespace fisher
+    namespace fischer
     {
         constexpr double pawnValue{1};
         constexpr double knightValue{3};
