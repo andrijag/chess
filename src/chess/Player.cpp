@@ -18,4 +18,10 @@ namespace chess
         else
             chessClock.stopBlack();
     }
+
+    bool Player::isOwnPiece(Chessboard &board, Position at) const
+    {
+        auto chessPiece = board.getSquareView(at).getChessPiece();
+        return chessPiece && chessPiece->getColor() == color;
+    }
 }

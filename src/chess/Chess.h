@@ -5,7 +5,6 @@
 
 #include "Chessboard.h"
 #include "ChessClock.h"
-#include "King.h"
 #include "Color.h"
 #include "Observable.h"
 #include "Player.h"

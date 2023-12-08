@@ -1,5 +1,7 @@
 #include "Chess.h"
 
+#include "King.h"
+
 namespace chess
 {
     Chess::Chess()
@@ -10,12 +12,12 @@ namespace chess
 
     void Chess::move(Position from, Position to)
     {
-        auto chessPiece = board.getSquare(from).getChessPiece();
-        if (!chessPiece || chessPiece->getColor() != currentPlayer->getColor())
+        if (!currentPlayer->isOwnPiece(board, from))
             return;
         // TODO
         currentPlayer->stopTime(clock);
         nextPlayer();
+        updateObservers();
     }
 
     void Chess::nextPlayer()
