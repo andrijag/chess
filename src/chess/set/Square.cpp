@@ -16,9 +16,19 @@ namespace chess
         return *this;
     }
 
+    Color Square::getColor() const
+    {
+        return color;
+    }
+
     ChessPiece *Square::getChessPiece() const
     {
         return chessPiece.get();
+    }
+
+    bool Square::isEmpty() const
+    {
+        return chessPiece == nullptr;
     }
 
     void Square::setColor(Color color)

@@ -26,7 +26,9 @@ namespace chess
         Square(Square &&) = default;
         Square &operator=(Square &&) = default;
 
+        Color getColor() const;
         ChessPiece *getChessPiece() const;
+        bool isEmpty() const;
 
     private:
         friend Chessboard;
