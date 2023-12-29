@@ -20,10 +20,12 @@ namespace chess
     public:
         Chessboard();
 
-        void place(Position, std::unique_ptr<ChessPiece>);
-        void move(Position, Position);
+        int getNumberOfRows() const;
+        int getNumberOfColumns() const;
         Square &getSquare(Position);
         const Square &getSquareView(Position) const;
+        void place(Position, std::unique_ptr<ChessPiece>);
+        void move(Position, Position);
         bool contains(Position) const;
     };
 }
