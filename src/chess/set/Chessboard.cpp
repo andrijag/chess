@@ -8,11 +8,14 @@ namespace chess
     {
         Color color{Color::white};
         for (auto &row : grid)
+        {
             for (auto &square : row)
             {
                 square.setColor(color);
                 color = !color;
             }
+            color = !color;
+        }
     }
 
     void Chessboard::place(Position at, std::unique_ptr<ChessPiece> chessPiece)

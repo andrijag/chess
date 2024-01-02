@@ -20,10 +20,10 @@ namespace chess
         board.place({0, 6}, createChessPiece<Bishop>(Color::black));
         board.place({0, 7}, createChessPiece<Rook>(Color::black));
 
-        for (auto column = 0; column < 7; column++)
+        for (auto column = 0; column < 8; column++)
             board.place({1, column}, createChessPiece<Pawn>(Color::black));
 
-        for (auto column = 0; column < 7; column++)
+        for (auto column = 0; column < 8; column++)
             board.place({6, column}, createChessPiece<Pawn>(Color::white));
 
         board.place({7, 0}, createChessPiece<Rook>(Color::white));
