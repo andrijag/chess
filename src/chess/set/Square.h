@@ -5,12 +5,14 @@
 
 #include "ChessPiece.h"
 #include "Color.h"
+#include "Visitable.h"
+#include "Visitor.h"
 
 namespace chess
 {
     class Chessboard;
 
-    class Square
+    class Square : public Visitable
     {
     private:
         Color color;
@@ -29,6 +31,7 @@ namespace chess
         Color getColor() const;
         ChessPiece *getChessPiece() const;
         bool isEmpty() const;
+        void accept(Visitor &) const override;
 
     private:
         friend Chessboard;

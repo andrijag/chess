@@ -7,6 +7,8 @@
 
 namespace chess
 {
+    class Visitor;
+
     class ChessPiece
     {
     protected:
@@ -27,6 +29,7 @@ namespace chess
     public:
         virtual std::unique_ptr<ChessPiece> clone() const = 0;
         Color getColor() const;
+        virtual void accept(Visitor &) const = 0;
     };
 
     template <typename T>

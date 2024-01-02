@@ -35,6 +35,14 @@ namespace chess
         return chessPiece == nullptr;
     }
 
+    void Square::accept(Visitor &visitor) const
+    {
+        if (isEmpty())
+            visitor.visitEmptySquare();
+        else
+            chessPiece->accept(visitor);
+    }
+
     std::unique_ptr<ChessPiece> Square::getChessPieceOwnership()
     {
         return std::move(chessPiece);

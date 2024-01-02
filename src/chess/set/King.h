@@ -3,6 +3,7 @@
 
 #include "ChessPiece.h"
 #include "Color.h"
+#include "Visitor.h"
 
 namespace chess
 {
@@ -12,6 +13,7 @@ namespace chess
         explicit King(Color);
 
         std::unique_ptr<ChessPiece> clone() const override;
+        void accept(Visitor &) const override;
     };
 }
 

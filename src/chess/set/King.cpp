@@ -12,4 +12,9 @@ namespace chess
     {
         return std::make_unique<King>(color);
     }
+
+    void King::accept(Visitor &visitor) const
+    {
+        visitor.visitKing(color);
+    }
 }
