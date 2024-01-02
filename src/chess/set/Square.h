@@ -17,7 +17,7 @@ namespace chess
         std::unique_ptr<ChessPiece> chessPiece{nullptr};
 
     public:
-        Square() = default;
+        explicit Square(Color);
         ~Square() = default;
 
         Square(const Square &);
@@ -32,9 +32,8 @@ namespace chess
 
     private:
         friend Chessboard;
-        void setColor(Color);
-        void setChessPiece(std::unique_ptr<ChessPiece>);
         std::unique_ptr<ChessPiece> getChessPieceOwnership();
+        void setChessPiece(std::unique_ptr<ChessPiece>);
     };
 }
 

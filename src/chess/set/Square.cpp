@@ -2,6 +2,10 @@
 
 namespace chess
 {
+    Square::Square(Color color) : color{color}
+    {
+    }
+
     Square::Square(const Square &square) : color{square.color}
     {
         if (square.chessPiece)
@@ -31,18 +35,13 @@ namespace chess
         return chessPiece == nullptr;
     }
 
-    void Square::setColor(Color color)
+    std::unique_ptr<ChessPiece> Square::getChessPieceOwnership()
     {
-        this->color = color;
+        return std::move(chessPiece);
     }
 
     void Square::setChessPiece(std::unique_ptr<ChessPiece> chessPiece)
     {
         this->chessPiece = std::move(chessPiece);
-    }
-
-    std::unique_ptr<ChessPiece> Square::getChessPieceOwnership()
-    {
-        return std::move(chessPiece);
     }
 }
