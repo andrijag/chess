@@ -15,26 +15,6 @@ namespace chess
             }
     }
 
-    int Chessboard::getNumberOfRows() const
-    {
-        return numberOfRows;
-    }
-
-    int Chessboard::getNumberOfColumns() const
-    {
-        return numberOfColumns;
-    }
-
-    Square &Chessboard::getSquare(Position at)
-    {
-        return grid.at(at.row).at(at.column);
-    }
-
-    const Square &Chessboard::getSquareView(Position at) const
-    {
-        return grid.at(at.row).at(at.column);
-    }
-
     void Chessboard::place(Position at, std::unique_ptr<ChessPiece> chessPiece)
     {
         getSquare(at).setChessPiece(std::move(chessPiece));
@@ -45,6 +25,16 @@ namespace chess
         auto chessPiece = getSquare(from).getChessPieceOwnership();
         if (chessPiece)
             place(to, std::move(chessPiece));
+    }
+
+    Square &Chessboard::getSquare(Position at)
+    {
+        return grid.at(at.row).at(at.column);
+    }
+
+    const Square &Chessboard::getSquareView(Position at) const
+    {
+        return grid.at(at.row).at(at.column);
     }
 
     bool Chessboard::contains(Position position) const
