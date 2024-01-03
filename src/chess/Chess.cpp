@@ -41,6 +41,7 @@ namespace chess
         if (!currentPlayer->isOwnPiece(board, from))
             return;
         // TODO
+        board.getSquareView(from).accept(rules);
         currentPlayer->stopTime(clock);
         nextPlayer();
         updateObservers();
