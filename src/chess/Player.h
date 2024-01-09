@@ -18,7 +18,7 @@ namespace chess
 
         Color getColor() const;
         void stopTime(ChessClock &) const;
-        bool isOwnPiece(Chessboard &, Position) const;
+        bool isOwnPiece(const Chessboard &, Position) const;
     };
 }
 
