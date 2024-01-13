@@ -5,21 +5,24 @@
 
 namespace chess
 {
+    using TimePoint = std::chrono::time_point<std::chrono::system_clock>;
+    using Milliseconds = std::chrono::milliseconds;
+
     class Stopwatch
     {
     private:
-        std::chrono::time_point<std::chrono::system_clock> startTime;
-        std::chrono::milliseconds elapsedTime{0};
+        TimePoint startTime;
+        Milliseconds elapsedTime{0};
         bool isRunning{false};
 
     public:
         void start();
         void stop();
-        std::chrono::milliseconds readTimeInMillis() const;
+        Milliseconds readTimeInMillis() const;
         void reset();
     };
 
-    std::chrono::time_point<std::chrono::system_clock> getCurrentTime();
+    TimePoint getCurrentTime();
 }
 
 #endif

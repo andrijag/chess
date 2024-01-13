@@ -18,8 +18,8 @@ namespace chess
         void stopWhite();
         void stopBlack();
         void stop();
-        std::chrono::milliseconds readWhiteTimeInMillis() const;
-        std::chrono::milliseconds readBlackTimeInMillis() const;
+        Milliseconds readWhiteTimeInMillis() const;
+        Milliseconds readBlackTimeInMillis() const;
         void reset();
     };
 }

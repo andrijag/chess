@@ -25,12 +25,12 @@ namespace chess
         blackStopwatch.stop();
     }
 
-    std::chrono::milliseconds ChessClock::readWhiteTimeInMillis() const
+    Milliseconds ChessClock::readWhiteTimeInMillis() const
     {
         return whiteStopwatch.readTimeInMillis();
     }
 
-    std::chrono::milliseconds ChessClock::readBlackTimeInMillis() const
+    Milliseconds ChessClock::readBlackTimeInMillis() const
     {
         return blackStopwatch.readTimeInMillis();
     }

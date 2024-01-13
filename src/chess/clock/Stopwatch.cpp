@@ -18,21 +18,21 @@ namespace chess
         isRunning = false;
     }
 
-    std::chrono::milliseconds Stopwatch::readTimeInMillis() const
+    Milliseconds Stopwatch::readTimeInMillis() const
     {
         auto totalElapsedTime = elapsedTime;
         if (isRunning)
-            totalElapsedTime += std::chrono::duration_cast<std::chrono::milliseconds>(getCurrentTime() - startTime);
+            totalElapsedTime += std::chrono::duration_cast<Milliseconds>(getCurrentTime() - startTime);
         return totalElapsedTime;
     }
 
     void Stopwatch::reset()
     {
-        elapsedTime = std::chrono::milliseconds{0};
+        elapsedTime = Milliseconds{0};
         isRunning = false;
     }
 
-    std::chrono::time_point<std::chrono::system_clock> getCurrentTime()
+    TimePoint getCurrentTime()
     {
         return std::chrono::system_clock::now();
     }
