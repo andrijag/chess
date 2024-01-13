@@ -10,7 +10,7 @@ namespace chess
 
     std::unique_ptr<ChessPiece> Pawn::clone() const
     {
-        return std::make_unique<Pawn>(color);
+        return createChessPiece<Pawn>(color);
     }
 
     void Pawn::accept(Visitor &visitor) const

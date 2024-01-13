@@ -34,7 +34,7 @@ namespace chess
         virtual void accept(Visitor &) const = 0;
     };
 
-    template <typename T>
+    template <class T>
     std::unique_ptr<ChessPiece> createChessPiece(Color color)
     {
         return std::make_unique<T>(color);

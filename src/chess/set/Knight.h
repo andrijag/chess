@@ -1,6 +1,8 @@
 #ifndef KNIGHT_H
 #define KNIGHT_H
 
+#include <memory>
+
 #include "ChessPiece.h"
 #include "Color.h"
 #include "Visitor.h"

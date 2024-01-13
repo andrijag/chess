@@ -10,7 +10,7 @@ namespace chess
 
     std::unique_ptr<ChessPiece> Queen::clone() const
     {
-        return std::make_unique<Queen>(color);
+        return createChessPiece<Queen>(color);
     }
 
     void Queen::accept(Visitor &visitor) const

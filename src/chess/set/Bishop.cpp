@@ -10,7 +10,7 @@ namespace chess
 
     std::unique_ptr<ChessPiece> Bishop::clone() const
     {
-        return std::make_unique<Bishop>(color);
+        return createChessPiece<Bishop>(color);
     }
 
     void Bishop::accept(Visitor &visitor) const

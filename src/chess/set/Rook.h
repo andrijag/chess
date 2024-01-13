@@ -1,6 +1,8 @@
 #ifndef ROOK_H
 #define ROOK_H
 
+#include <memory>
+
 #include "ChessPiece.h"
 #include "Color.h"
 #include "Visitor.h"

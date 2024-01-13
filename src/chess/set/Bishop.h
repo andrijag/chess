@@ -1,6 +1,8 @@
 #ifndef BISHOP_H
 #define BISHOP_H
 
+#include <memory>
+
 #include "ChessPiece.h"
 #include "Color.h"
 #include "Visitor.h"
