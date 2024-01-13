@@ -15,8 +15,10 @@ namespace chess
         Color color;
         double value;
 
-    public:
+    protected:
         ChessPiece(Color, double);
+
+    public:
         virtual ~ChessPiece() = default;
 
     protected:
