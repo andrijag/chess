@@ -1,8 +1,8 @@
 #ifndef CHESSBOARD_H
 #define CHESSBOARD_H
 
-#include <vector>
 #include <memory>
+#include <vector>
 
 #include "ChessPiece.h"
 #include "Position.h"

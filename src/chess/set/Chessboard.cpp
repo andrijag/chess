@@ -4,7 +4,8 @@
 
 namespace chess
 {
-    Chessboard::Chessboard(int numberOfRows, int numberOfColumns) : numberOfRows{numberOfRows}, numberOfColumns{numberOfColumns}
+    Chessboard::Chessboard(int numberOfRows, int numberOfColumns)
+        : numberOfRows{numberOfRows}, numberOfColumns{numberOfColumns}
     {
         Color color{Color::white};
         for (auto rows = 0; rows < numberOfRows; rows++)
@@ -55,6 +56,7 @@ namespace chess
 
     bool Chessboard::contains(Position position) const
     {
-        return (0 <= position.row && position.row < numberOfRows) && (0 <= position.column && position.column < numberOfColumns);
+        return (0 <= position.row && position.row < numberOfRows) &&
+               (0 <= position.column && position.column < numberOfColumns);
     }
 }
