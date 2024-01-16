@@ -22,7 +22,7 @@ namespace chess
     {
         auto totalElapsedTime = elapsedTime;
         if (isRunning)
-            totalElapsedTime += std::chrono::duration_cast<Milliseconds>(getCurrentTime() - startTime);
+            totalElapsedTime += getDuration(startTime, getCurrentTime());
         return totalElapsedTime;
     }
 
@@ -35,5 +35,10 @@ namespace chess
     TimePoint getCurrentTime()
     {
         return std::chrono::system_clock::now();
+    }
+
+    Milliseconds getDuration(TimePoint t1, TimePoint t2)
+    {
+        return std::chrono::duration_cast<Milliseconds>(t2 - t1);
     }
 }

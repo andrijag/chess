@@ -23,6 +23,7 @@ namespace chess
     };
 
     TimePoint getCurrentTime();
+    Milliseconds getDuration(TimePoint, TimePoint);
 }
 
 #endif
