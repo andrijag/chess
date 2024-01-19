@@ -17,4 +17,14 @@ namespace chess
     {
         visitor.visitRook(color);
     }
+
+    bool Rook::isMoved() const
+    {
+        return moved;
+    }
+
+    void Rook::setMoved(bool moved)
+    {
+        this->moved = moved;
+    }
 }

@@ -17,4 +17,14 @@ namespace chess
     {
         visitor.visitKing(color);
     }
+
+    bool King::isMoved() const
+    {
+        return moved;
+    }
+
+    void King::setMoved(bool moved)
+    {
+        this->moved = moved;
+    }
 }
