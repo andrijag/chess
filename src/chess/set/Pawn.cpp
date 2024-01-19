@@ -17,4 +17,14 @@ namespace chess
     {
         visitor.visitPawn(color);
     }
+
+    bool Pawn::isFirstMove() const
+    {
+        return firstMove;
+    }
+
+    void Pawn::setFirstMove(bool firstMove)
+    {
+        this->firstMove = firstMove;
+    }
 }
