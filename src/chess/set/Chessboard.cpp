@@ -59,4 +59,8 @@ namespace chess
         return (0 <= position.row && position.row < numberOfRows) &&
                (0 <= position.column && position.column < numberOfColumns);
     }
+
+    bool Chessboard::isEmptyAt(Position position) const {
+        return getSquareView(position).isEmpty();
+    }
 }
