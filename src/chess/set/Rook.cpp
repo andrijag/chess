@@ -29,7 +29,7 @@ namespace chess
                 movePattern.push_back(move);
                 move += direction;
             }
-            if (board.contains(move) && isEnemy(board, move))
+            if (board.contains(move) && isEnemyPiece(board, move))
                 movePattern.push_back(move);
         }
         return movePattern;

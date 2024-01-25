@@ -13,13 +13,13 @@ namespace chess
         return color;
     }
 
-    bool ChessPiece::isFriendly(const Chessboard &board, Position at) const
+    bool ChessPiece::isOwnPiece(const Chessboard &board, Position at) const
     {
         auto chessPiece = board.getSquareView(at).getChessPiece();
         return chessPiece && chessPiece->getColor() == color;
     }
 
-    bool ChessPiece::isEnemy(const Chessboard &board, Position at) const
+    bool ChessPiece::isEnemyPiece(const Chessboard &board, Position at) const
     {
         auto chessPiece = board.getSquareView(at).getChessPiece();
         return chessPiece && chessPiece->getColor() != color;

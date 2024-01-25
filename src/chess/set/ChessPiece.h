@@ -39,8 +39,8 @@ namespace chess
         virtual std::vector<Position> getMovePattern(const Chessboard &, Position) const = 0;
 
     protected:
-        bool isFriendly(const Chessboard &, Position) const;
-        bool isEnemy(const Chessboard &, Position) const;
+        bool isOwnPiece(const Chessboard &, Position) const;
+        bool isEnemyPiece(const Chessboard &, Position) const;
     };
 
     template <class T>
