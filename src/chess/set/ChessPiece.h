@@ -2,11 +2,15 @@
 #define CHESS_PIECE_H
 
 #include <memory>
+#include <vector>
 
 #include "Color.h"
+#include "Direction.h"
+#include "Position.h"
 
 namespace chess
 {
+    class Chessboard;
     class Visitor;
 
     class ChessPiece
@@ -32,6 +36,11 @@ namespace chess
         virtual std::unique_ptr<ChessPiece> clone() const = 0;
         Color getColor() const;
         virtual void accept(Visitor &) const = 0;
+        virtual std::vector<Position> getMovePattern(const Chessboard &, Position) const = 0;
+
+    protected:
+        bool isFriendly(const Chessboard &, Position) const;
+        bool isEnemy(const Chessboard &, Position) const;
     };
 
     template <class T>
