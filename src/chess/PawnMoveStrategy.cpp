@@ -2,6 +2,7 @@
 
 #include "Direction.h"
 #include "Move.h"
+#include "Pawn.h"
 
 namespace chess
 {
@@ -12,7 +13,12 @@ namespace chess
         auto moveDirection = getMoveDirection(board.getSquareView(source).getChessPiece()->getColor());
         auto destination = source + moveDirection;
         if (board.contains(destination) && board.getSquareView(destination).isEmpty())
+        {
             movePattern.push_back(std::make_unique<Move>(board, source, destination));
+            destination += moveDirection;
+            if (static_cast<Pawn *>(board.getSquareView(source).getChessPiece())->isFirstMove() && board.getSquareView(destination).isEmpty())
+                movePattern.push_back(std::make_unique<Move>(board, source, destination));
+        }
         for (auto captureDirection : getCaptureDirections(moveDirection))
             if (board.contains(destination) && board.getSquareView(destination).getChessPiece()->getColor() != board.getSquareView(source).getChessPiece()->getColor())
                 movePattern.push_back(std::make_unique<Move>(board, source, destination));

@@ -10,7 +10,6 @@
 namespace chess
 {
     class Chessboard;
-    class Rules;
 
     class MoveStrategy
     {
@@ -18,7 +17,7 @@ namespace chess
         virtual ~MoveStrategy() = default;
 
         virtual std::vector<std::unique_ptr<MoveCommand>>
-        getMovePattern(const Rules &, Chessboard &, Position) const = 0;
+        getMovePattern(Chessboard &, Position) const = 0;
     };
 }
 
