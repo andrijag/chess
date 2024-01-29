@@ -60,7 +60,13 @@ namespace chess
                (0 <= position.column && position.column < numberOfColumns);
     }
 
-    bool Chessboard::isEmptyAt(Position position) const {
+    ChessPiece *Chessboard::getChessPieceAt(Position position) const
+    {
+        return getSquareView(position).getChessPiece();
+    }
+
+    bool Chessboard::isEmptyAt(Position position) const
+    {
         return getSquareView(position).isEmpty();
     }
 }
