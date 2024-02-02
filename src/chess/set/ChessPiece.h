@@ -28,7 +28,6 @@ namespace chess
     protected:
         ChessPiece(const ChessPiece &) = default;
         ChessPiece &operator=(const ChessPiece &) = default;
-
         ChessPiece(ChessPiece &&) = default;
         ChessPiece &operator=(ChessPiece &&) = default;
 

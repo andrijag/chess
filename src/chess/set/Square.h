@@ -21,10 +21,8 @@ namespace chess
     public:
         explicit Square(Color);
         ~Square() = default;
-
         Square(const Square &);
         Square &operator=(const Square &);
-
         Square(Square &&) = default;
         Square &operator=(Square &&) = default;
 
