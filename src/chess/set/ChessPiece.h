@@ -2,7 +2,7 @@
 #define CHESS_PIECE_H
 
 #include <memory>
-#include <vector>
+#include <unordered_set>
 
 #include "Color.h"
 #include "Direction.h"
@@ -36,7 +36,7 @@ namespace chess
         virtual std::unique_ptr<ChessPiece> clone() const = 0;
         Color getColor() const;
         virtual void accept(Visitor &) const = 0;
-        virtual std::vector<Position> getMovePattern(const Chessboard &, Position) const = 0;
+        virtual std::unordered_set<Position> getMovePattern(const Chessboard &, Position) const = 0;
 
     protected:
         bool isOwnPiece(const Chessboard &, Position) const;
@@ -44,7 +44,7 @@ namespace chess
     };
 
     template <class T>
-    std::unique_ptr<ChessPiece> createChessPiece(Color color)
+    std::unique_ptr<T> createChessPiece(Color color)
     {
         return std::make_unique<T>(color);
     }

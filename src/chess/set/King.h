@@ -2,7 +2,7 @@
 #define KING_H
 
 #include <memory>
-#include <vector>
+#include <unordered_set>
 
 #include "Chessboard.h"
 #include "ChessPiece.h"
@@ -15,20 +15,15 @@ namespace chess
 {
     class King : public ChessPiece
     {
-    private:
-        bool moved{false};
-
     public:
         explicit King(Color);
 
         std::unique_ptr<ChessPiece> clone() const override;
         void accept(Visitor &) const override;
-        std::vector<Position> getMovePattern(const Chessboard &, Position) const override;
-        bool isMoved() const;
-        void setMoved(bool);
+        std::unordered_set<Position> getMovePattern(const Chessboard &, Position) const override;
 
     private:
-        std::vector<Direction> getMoveDirections() const;
+        std::unordered_set<Direction> getMoveDirections() const;
     };
 }
 

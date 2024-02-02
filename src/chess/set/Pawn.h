@@ -2,7 +2,7 @@
 #define PAWN_H
 
 #include <memory>
-#include <vector>
+#include <unordered_set>
 
 #include "Chessboard.h"
 #include "ChessPiece.h"
@@ -22,14 +22,14 @@ namespace chess
         explicit Pawn(Color);
 
         std::unique_ptr<ChessPiece> clone() const override;
-        void accept(Visitor &) const override;
-        std::vector<Position> getMovePattern(const Chessboard &, Position) const override;
         bool isFirstMove() const;
         void setFirstMove(bool);
+        void accept(Visitor &) const override;
+        std::unordered_set<Position> getMovePattern(const Chessboard &, Position) const override;
 
     private:
         Direction getMoveDirection(Color) const;
-        std::vector<Direction> getCaptureDirections(Color) const;
+        std::unordered_set<Direction> getCaptureDirections(Color) const;
     };
 }
 

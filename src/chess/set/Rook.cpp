@@ -18,37 +18,27 @@ namespace chess
         visitor.visitRook(color);
     }
 
-    std::vector<Position> Rook::getMovePattern(const Chessboard &board, Position from) const
+    std::unordered_set<Position> Rook::getMovePattern(const Chessboard &board, Position from) const
     {
-        std::vector<Position> movePattern;
+        std::unordered_set<Position> movePattern;
         for (auto direction : getMoveDirections())
         {
             auto move = from + direction;
             while (board.contains(move) && board.isEmptyAt(move))
             {
-                movePattern.push_back(move);
+                movePattern.insert(move);
                 move += direction;
             }
             if (board.contains(move) && isEnemyPiece(board, move))
-                movePattern.push_back(move);
+                movePattern.insert(move);
         }
         return movePattern;
     }
 
-    bool Rook::isMoved() const
-    {
-        return moved;
-    }
-
-    void Rook::setMoved(bool moved)
-    {
-        this->moved = moved;
-    }
-
-    std::vector<Direction> Rook::getMoveDirections() const
+    std::unordered_set<Direction> Rook::getMoveDirections() const
     {
         using namespace direction;
-        std::vector<Direction> directions{n, e, s, w};
+        std::unordered_set<Direction> directions{n, e, s, w};
         return directions;
     }
 }

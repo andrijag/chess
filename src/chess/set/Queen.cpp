@@ -18,27 +18,27 @@ namespace chess
         visitor.visitQueen(color);
     }
 
-    std::vector<Position> Queen::getMovePattern(const Chessboard &board, Position from) const
+    std::unordered_set<Position> Queen::getMovePattern(const Chessboard &board, Position from) const
     {
-        std::vector<Position> movePattern;
+        std::unordered_set<Position> movePattern;
         for (auto direction : getMoveDirections())
         {
             auto move = from + direction;
             while (board.contains(move) && board.isEmptyAt(move))
             {
-                movePattern.push_back(move);
+                movePattern.insert(move);
                 move += direction;
             }
             if (board.contains(move) && isEnemyPiece(board, move))
-                movePattern.push_back(move);
+                movePattern.insert(move);
         }
         return movePattern;
     }
 
-    std::vector<Direction> Queen::getMoveDirections() const
+    std::unordered_set<Direction> Queen::getMoveDirections() const
     {
         using namespace direction;
-        std::vector<Direction> directions{n, ne, e, se, s, sw, w, nw};
+        std::unordered_set<Direction> directions{n, ne, e, se, s, sw, w, nw};
         return directions;
     }
 }

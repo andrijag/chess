@@ -18,32 +18,22 @@ namespace chess
         visitor.visitKing(color);
     }
 
-    std::vector<Position> King::getMovePattern(const Chessboard &board, Position from) const
+    std::unordered_set<Position> King::getMovePattern(const Chessboard &board, Position from) const
     {
-        std::vector<Position> movePattern;
+        std::unordered_set<Position> movePattern;
         for (auto direction : getMoveDirections())
         {
             auto move = from + direction;
             if (board.contains(move) && !isOwnPiece(board, move))
-                movePattern.push_back(move);
+                movePattern.insert(move);
         }
         return movePattern;
     }
 
-    bool King::isMoved() const
-    {
-        return moved;
-    }
-
-    void King::setMoved(bool moved)
-    {
-        this->moved = moved;
-    }
-
-    std::vector<Direction> King::getMoveDirections() const
+    std::unordered_set<Direction> King::getMoveDirections() const
     {
         using namespace direction;
-        std::vector<Direction> directions{n, ne, e, se, s, sw, w, nw};
+        std::unordered_set<Direction> directions{n, ne, e, se, s, sw, w, nw};
         return directions;
     }
 }
