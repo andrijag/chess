@@ -27,6 +27,8 @@ namespace chess
         void move(Position, Position);
 
     private:
+        bool isStalemate(Color) const;
+        bool isCheckmated(Color) const;
         bool hasPossibleMoves(Color) const;
         std::unordered_set<Position> getPossibleMoves(Position) const;
         void nextPlayer();

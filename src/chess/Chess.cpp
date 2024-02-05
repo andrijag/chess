@@ -51,6 +51,16 @@ namespace chess
         updateObservers();
     }
 
+    bool Chess::isStalemate(Color color) const
+    {
+        return !isInCheck(board, color) && !hasPossibleMoves(color);
+    }
+
+    bool Chess::isCheckmated(Color color) const
+    {
+        return isInCheck(board, color) && !hasPossibleMoves(color);
+    }
+
     bool Chess::hasPossibleMoves(Color color) const
     {
         for (auto row = 0; row < board.getNumberOfRows(); row++)
