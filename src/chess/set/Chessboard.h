@@ -13,8 +13,8 @@ namespace chess
     class Chessboard
     {
     private:
-        const int numberOfRows;
-        const int numberOfColumns;
+        int numberOfRows;
+        int numberOfColumns;
         std::vector<std::vector<Square>> grid;
 
     public:
