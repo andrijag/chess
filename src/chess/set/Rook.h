@@ -15,6 +15,9 @@ namespace chess
 {
     class Rook : public ChessPiece
     {
+    private:
+        bool moved{false};
+
     public:
         explicit Rook(Color);
 
