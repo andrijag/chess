@@ -2,6 +2,7 @@
 #define CHESS_H
 
 #include <utility>
+#include <unordered_set>
 
 #include "Chessboard.h"
 #include "ChessClock.h"
@@ -9,7 +10,6 @@
 #include "Observable.h"
 #include "Player.h"
 #include "Position.h"
-#include "Rules.h"
 
 namespace chess
 {
@@ -20,7 +20,6 @@ namespace chess
         Chessboard board;
         std::pair<Player, Player> players{Player{Color::white}, Player{Color::black}};
         Player *currentPlayer{&players.first};
-        Rules rules;
 
     public:
         Chess();
@@ -28,8 +27,14 @@ namespace chess
         void move(Position, Position);
 
     private:
+        bool hasPossibleMoves(Color) const;
+        std::unordered_set<Position> getPossibleMoves(Position) const;
         void nextPlayer();
     };
+
+    void moveChessPiece(Chessboard &, Position, Position);
+    bool isInCheck(const Chessboard &, Color);
+    std::unordered_set<Position> getSquaresUnderAttack(const Chessboard &, Color);
 }
 
 #endif

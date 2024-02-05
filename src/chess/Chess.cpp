@@ -40,11 +40,41 @@ namespace chess
     {
         if (!currentPlayer->isOwnPiece(board, from))
             return;
-        // TODO
-        board.getSquareView(from).accept(rules);
+        if (!getPossibleMoves(from).contains(to))
+            return;
+
+        moveChessPiece(board, from, to);
+
         currentPlayer->stopTime(clock);
         nextPlayer();
+
         updateObservers();
+    }
+
+    bool Chess::hasPossibleMoves(Color color) const
+    {
+        for (auto row = 0; row < board.getNumberOfRows(); row++)
+            for (auto column = 0; column < board.getNumberOfColumns(); column++)
+            {
+                Position square{row, column};
+                if (!board.isEmptyAt(square) && board.getChessPieceAt(square)->getColor() == color && !getPossibleMoves(square).empty())
+                    return true;
+            }
+        return false;
+    }
+
+    std::unordered_set<Position> Chess::getPossibleMoves(Position from) const
+    {
+        std::unordered_set<Position> possibleMoves;
+        auto movePattern = board.getChessPieceAt(from)->getMovePattern(board, from);
+        for (auto move : movePattern)
+        {
+            auto boardCopy = board;
+            moveChessPiece(boardCopy, from, move);
+            if (!isInCheck(boardCopy, board.getChessPieceAt(from)->getColor()))
+                possibleMoves.insert(move);
+        }
+        return possibleMoves;
     }
 
     void Chess::nextPlayer()
@@ -53,5 +83,36 @@ namespace chess
             currentPlayer = &players.second;
         else
             currentPlayer = &players.first;
+    }
+
+    void moveChessPiece(Chessboard &board, Position from, Position to)
+    {
+        board.move(from, to);
+        if (auto pawn = dynamic_cast<Pawn *>(board.getChessPieceAt(to)))
+            pawn->setFirstMove(false);
+    }
+
+    bool isInCheck(const Chessboard &board, Color color)
+    {
+        for (auto square : getSquaresUnderAttack(board, !color))
+            if (!board.isEmptyAt(square) && dynamic_cast<King *>(board.getChessPieceAt(square)))
+                return true;
+        return false;
+    }
+
+    std::unordered_set<Position> getSquaresUnderAttack(const Chessboard &board, Color color)
+    {
+        std::unordered_set<Position> squaresUnderAttack;
+        for (auto row = 0; row < board.getNumberOfRows(); row++)
+            for (auto column = 0; column < board.getNumberOfColumns(); column++)
+            {
+                Position square = {row, column};
+                if (!board.isEmptyAt(square) && board.getChessPieceAt(square)->getColor() == color)
+                {
+                    auto movePattern = board.getChessPieceAt(square)->getMovePattern(board, square);
+                    squaresUnderAttack.merge(movePattern);
+                }
+            }
+        return squaresUnderAttack;
     }
 }
