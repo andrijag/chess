@@ -15,9 +15,6 @@ namespace chess
 {
     class King : public ChessPiece
     {
-    private:
-        bool moved{false};
-
     public:
         explicit King(Color);
 
