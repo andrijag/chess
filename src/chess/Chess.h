@@ -14,6 +14,7 @@
 
 namespace chess
 {
+    // TODO: special moves (en passant, castling, pawn promotion)
     class Chess : public Observable
     {
     private:
