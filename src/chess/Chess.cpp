@@ -11,6 +11,46 @@ namespace chess
 {
     Chess::Chess()
     {
+        boardSetup();
+    }
+
+    void Chess::move(Position from, Position to)
+    {
+        if (!isLegalMove(from, to))
+            return;
+
+        moveChessPiece(board, from, to);
+
+        if (isStalemate(!currentPlayer->getColor()))
+        {
+            clock.stop();
+            status = GameStatus::stalemate;
+        }
+        else if (isCheckmated(!currentPlayer->getColor()))
+        {
+            clock.stop();
+            status = (currentPlayer->getColor() == Color::white) ? GameStatus::whiteCheckmates : GameStatus::blackCheckmates;
+        }
+        else
+        {
+            currentPlayer->stopTime(clock);
+            nextPlayer();
+        }
+
+        updateObservers();
+    }
+
+    void Chess::restart()
+    {
+        clock = ChessClock{};
+        board = Chessboard{};
+        currentPlayer = &players.first;
+        status = GameStatus::playing;
+        boardSetup();
+    }
+
+    void Chess::boardSetup()
+    {
         board.place({0, 0}, createChessPiece<Rook>(Color::black));
         board.place({0, 1}, createChessPiece<Bishop>(Color::black));
         board.place({0, 2}, createChessPiece<Knight>(Color::black));
@@ -36,19 +76,19 @@ namespace chess
         board.place({7, 7}, createChessPiece<Rook>(Color::white));
     }
 
-    void Chess::move(Position from, Position to)
+    bool Chess::isLegalMove(Position from, Position to) const
     {
-        if (!currentPlayer->isOwnPiece(board, from))
-            return;
-        if (!getPossibleMoves(from).contains(to))
-            return;
+        return status == GameStatus::playing &&
+               currentPlayer->isOwnPiece(board, from) &&
+               getPossibleMoves(from).contains(to);
+    }
 
-        moveChessPiece(board, from, to);
-
-        currentPlayer->stopTime(clock);
-        nextPlayer();
-
-        updateObservers();
+    void Chess::nextPlayer()
+    {
+        if (currentPlayer == &players.first)
+            currentPlayer = &players.second;
+        else
+            currentPlayer = &players.first;
     }
 
     bool Chess::isStalemate(Color color) const
@@ -85,14 +125,6 @@ namespace chess
                 possibleMoves.insert(move);
         }
         return possibleMoves;
-    }
-
-    void Chess::nextPlayer()
-    {
-        if (currentPlayer == &players.first)
-            currentPlayer = &players.second;
-        else
-            currentPlayer = &players.first;
     }
 
     void moveChessPiece(Chessboard &board, Position from, Position to)

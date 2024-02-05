@@ -7,6 +7,7 @@
 #include "Chessboard.h"
 #include "ChessClock.h"
 #include "Color.h"
+#include "GameStatus.h"
 #include "Observable.h"
 #include "Player.h"
 #include "Position.h"
@@ -20,18 +21,22 @@ namespace chess
         Chessboard board;
         std::pair<Player, Player> players{Player{Color::white}, Player{Color::black}};
         Player *currentPlayer{&players.first};
+        GameStatus status{GameStatus::playing};
 
     public:
         Chess();
 
         void move(Position, Position);
+        void restart();
 
     private:
+        void boardSetup();
+        bool isLegalMove(Position, Position) const;
+        void nextPlayer();
         bool isStalemate(Color) const;
         bool isCheckmated(Color) const;
         bool hasPossibleMoves(Color) const;
         std::unordered_set<Position> getPossibleMoves(Position) const;
-        void nextPlayer();
     };
 
     void moveChessPiece(Chessboard &, Position, Position);
