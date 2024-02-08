@@ -79,7 +79,7 @@ namespace chess
     bool Chess::isLegalMove(Position from, Position to) const
     {
         return status == GameStatus::playing &&
-               currentPlayer->isOwnPiece(board, from) &&
+               currentPlayer->isOwnPieceAt(board, from) &&
                getPossibleMoves(from).contains(to);
     }
 

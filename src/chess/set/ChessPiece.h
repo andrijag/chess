@@ -39,8 +39,8 @@ namespace chess
         virtual std::unordered_set<Position> getMovePattern(const Chessboard &, Position) const = 0;
 
     protected:
-        bool isOwnPiece(const Chessboard &, Position) const;
-        bool isEnemyPiece(const Chessboard &, Position) const;
+        bool isOwnPieceAt(const Chessboard &, Position) const;
+        bool isEnemyPieceAt(const Chessboard &, Position) const;
     };
 
     template <class T>

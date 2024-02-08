@@ -45,7 +45,7 @@ namespace chess
         for (auto captureDirection : getCaptureDirections(color))
         {
             auto capture = from + captureDirection;
-            if (board.contains(capture) && isEnemyPiece(board, capture))
+            if (board.contains(capture) && isEnemyPieceAt(board, capture))
                 movePattern.insert(capture);
         }
         return movePattern;

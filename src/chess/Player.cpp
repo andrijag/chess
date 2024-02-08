@@ -19,9 +19,9 @@ namespace chess
             chessClock.stopBlack();
     }
 
-    bool Player::isOwnPiece(const Chessboard &board, Position at) const
+    bool Player::isOwnPieceAt(const Chessboard &board, Position position) const
     {
-        auto chessPiece = board.getSquareView(at).getChessPiece();
+        auto chessPiece = board.getChessPieceAt(position);
         return chessPiece && chessPiece->getColor() == color;
     }
 }

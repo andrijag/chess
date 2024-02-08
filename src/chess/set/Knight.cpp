@@ -24,7 +24,7 @@ namespace chess
         for (auto direction : getMoveDirections())
         {
             auto move = from + direction;
-            if (board.contains(move) && !isOwnPiece(board, move))
+            if (board.contains(move) && !isOwnPieceAt(board, move))
                 movePattern.insert(move);
         }
         return movePattern;

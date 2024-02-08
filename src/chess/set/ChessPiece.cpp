@@ -18,15 +18,15 @@ namespace chess
         return value;
     }
 
-    bool ChessPiece::isOwnPiece(const Chessboard &board, Position at) const
+    bool ChessPiece::isOwnPieceAt(const Chessboard &board, Position position) const
     {
-        auto chessPiece = board.getSquareView(at).getChessPiece();
+        auto chessPiece = board.getChessPieceAt(position);
         return chessPiece && chessPiece->getColor() == color;
     }
 
-    bool ChessPiece::isEnemyPiece(const Chessboard &board, Position at) const
+    bool ChessPiece::isEnemyPieceAt(const Chessboard &board, Position position) const
     {
-        auto chessPiece = board.getSquareView(at).getChessPiece();
+        auto chessPiece = board.getChessPieceAt(position);
         return chessPiece && chessPiece->getColor() != color;
     }
 }
