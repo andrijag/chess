@@ -34,6 +34,7 @@ namespace chess
     public:
         virtual std::unique_ptr<ChessPiece> clone() const = 0;
         Color getColor() const;
+        double getValue() const;
         virtual void accept(Visitor &) const = 0;
         virtual std::unordered_set<Position> getMovePattern(const Chessboard &, Position) const = 0;
 

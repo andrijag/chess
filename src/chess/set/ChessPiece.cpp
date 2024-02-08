@@ -13,6 +13,11 @@ namespace chess
         return color;
     }
 
+    double ChessPiece::getValue() const
+    {
+        return value;
+    }
+
     bool ChessPiece::isOwnPiece(const Chessboard &board, Position at) const
     {
         auto chessPiece = board.getSquareView(at).getChessPiece();
