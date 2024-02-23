@@ -9,10 +9,6 @@ namespace chess
 {
     class ChessClock
     {
-    private:
-        Stopwatch whiteStopwatch;
-        Stopwatch blackStopwatch;
-
     public:
         void start();
         void stopWhite();
@@ -21,6 +17,10 @@ namespace chess
         Milliseconds readWhiteTimeInMillis() const;
         Milliseconds readBlackTimeInMillis() const;
         void reset();
+
+    private:
+        Stopwatch whiteStopwatch;
+        Stopwatch blackStopwatch;
     };
 }
 

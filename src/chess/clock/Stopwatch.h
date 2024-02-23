@@ -10,16 +10,16 @@ namespace chess
 
     class Stopwatch
     {
-    private:
-        TimePoint startTime;
-        Milliseconds elapsedTime{0};
-        bool isRunning{false};
-
     public:
         void start();
         void stop();
         Milliseconds readTimeInMillis() const;
         void reset();
+
+    private:
+        TimePoint startTime;
+        Milliseconds elapsedTime{0};
+        bool isRunning{false};
     };
 
     TimePoint getCurrentTime();
