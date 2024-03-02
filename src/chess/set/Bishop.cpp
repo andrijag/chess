@@ -4,8 +4,18 @@
 
 namespace chess
 {
-    Bishop::Bishop(Color color) : ChessPiece{color, fischer::bishopValue}
+    Bishop::Bishop(Color color) : color{color}, value{fischer::bishopValue}
     {
+    }
+
+    Color Bishop::getColor() const
+    {
+        return color;
+    }
+
+    double Bishop::getValue() const
+    {
+        return value;
     }
 
     std::unique_ptr<ChessPiece> Bishop::clone() const

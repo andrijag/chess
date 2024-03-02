@@ -18,12 +18,18 @@ namespace chess
     public:
         explicit Knight(Color);
 
+        Color getColor() const override;
+        double getValue() const override;
         std::unique_ptr<ChessPiece> clone() const override;
         void accept(Visitor &) const override;
         std::unordered_set<Position> getMovePattern(const Chessboard &, Position) const override;
 
     private:
         std::unordered_set<Direction> getMoveDirections() const;
+
+    private:
+        Color color;
+        double value;
     };
 }
 

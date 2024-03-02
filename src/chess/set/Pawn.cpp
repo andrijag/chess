@@ -4,15 +4,18 @@
 
 namespace chess
 {
-    Pawn::Pawn(Color color) : ChessPiece{color, fischer::pawnValue}
+    Pawn::Pawn(Color color) : color{color}, value{fischer::pawnValue}
     {
     }
 
-    std::unique_ptr<ChessPiece> Pawn::clone() const
+    Color Pawn::getColor() const
     {
-        auto clone = createChessPiece<Pawn>(color);
-        clone->firstMove = firstMove;
-        return clone;
+        return color;
+    }
+
+    double Pawn::getValue() const
+    {
+        return value;
     }
 
     bool Pawn::isFirstMove() const
@@ -23,6 +26,13 @@ namespace chess
     void Pawn::setFirstMove(bool firstMove)
     {
         this->firstMove = firstMove;
+    }
+
+    std::unique_ptr<ChessPiece> Pawn::clone() const
+    {
+        auto clone = createChessPiece<Pawn>(color);
+        clone->firstMove = firstMove;
+        return clone;
     }
 
     void Pawn::accept(Visitor &visitor) const

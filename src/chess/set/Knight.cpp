@@ -4,8 +4,18 @@
 
 namespace chess
 {
-    Knight::Knight(Color color) : ChessPiece{color, fischer::knightValue}
+    Knight::Knight(Color color) : color{color}, value{fischer::knightValue}
     {
+    }
+
+    Color Knight::getColor() const
+    {
+        return color;
+    }
+
+    double Knight::getValue() const
+    {
+        return value;
     }
 
     std::unique_ptr<ChessPiece> Knight::clone() const

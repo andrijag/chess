@@ -4,8 +4,18 @@
 
 namespace chess
 {
-    Rook::Rook(Color color) : ChessPiece{color, fischer::rookValue}
+    Rook::Rook(Color color) : color{color}, value{fischer::rookValue}
     {
+    }
+
+    Color Rook::getColor() const
+    {
+        return color;
+    }
+
+    double Rook::getValue() const
+    {
+        return value;
     }
 
     std::unique_ptr<ChessPiece> Rook::clone() const

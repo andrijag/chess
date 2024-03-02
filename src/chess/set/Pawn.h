@@ -15,21 +15,25 @@ namespace chess
 {
     class Pawn : public ChessPiece
     {
-    private:
-        bool firstMove{true};
-
     public:
         explicit Pawn(Color);
 
-        std::unique_ptr<ChessPiece> clone() const override;
+        Color getColor() const override;
+        double getValue() const override;
         bool isFirstMove() const;
         void setFirstMove(bool);
+        std::unique_ptr<ChessPiece> clone() const override;
         void accept(Visitor &) const override;
         std::unordered_set<Position> getMovePattern(const Chessboard &, Position) const override;
 
     private:
         Direction getMoveDirection(Color) const;
         std::unordered_set<Direction> getCaptureDirections(Color) const;
+
+    private:
+        Color color;
+        double value;
+        bool firstMove{true};
     };
 }
 

@@ -15,26 +15,13 @@ namespace chess
 
     class ChessPiece
     {
-    protected:
-        Color color;
-        double value;
-
-    protected:
-        ChessPiece(Color, double);
-
     public:
         virtual ~ChessPiece() = default;
 
-    protected:
-        ChessPiece(const ChessPiece &) = default;
-        ChessPiece &operator=(const ChessPiece &) = default;
-        ChessPiece(ChessPiece &&) = default;
-        ChessPiece &operator=(ChessPiece &&) = default;
-
     public:
+        virtual Color getColor() const = 0;
+        virtual double getValue() const = 0;
         virtual std::unique_ptr<ChessPiece> clone() const = 0;
-        Color getColor() const;
-        double getValue() const;
         virtual void accept(Visitor &) const = 0;
         virtual std::unordered_set<Position> getMovePattern(const Chessboard &, Position) const = 0;
 
