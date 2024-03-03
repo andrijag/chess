@@ -10,14 +10,8 @@
 
 namespace chess
 {
-    class Chessboard;
-
     class Square : public Visitable
     {
-    private:
-        Color color;
-        std::unique_ptr<ChessPiece> chessPiece{nullptr};
-
     public:
         explicit Square(Color);
         ~Square() = default;
@@ -35,6 +29,10 @@ namespace chess
         friend Chessboard;
         std::unique_ptr<ChessPiece> getChessPieceOwnership();
         void setChessPiece(std::unique_ptr<ChessPiece>);
+
+    private:
+        Color color;
+        std::unique_ptr<ChessPiece> chessPiece{nullptr};
     };
 }
 

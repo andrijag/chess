@@ -12,11 +12,6 @@ namespace chess
 {
     class Chessboard
     {
-    private:
-        int numberOfRows;
-        int numberOfColumns;
-        std::vector<std::vector<Square>> grid;
-
     public:
         Chessboard(int numberOfRows = 8, int numberOfColumns = 8);
 
@@ -29,6 +24,11 @@ namespace chess
         bool contains(Position) const;
         ChessPiece *getChessPieceAt(Position) const;
         bool isEmptyAt(Position) const;
+
+    private:
+        int numberOfRows;
+        int numberOfColumns;
+        std::vector<std::vector<Square>> grid;
     };
 }
 
