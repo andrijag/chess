@@ -24,12 +24,12 @@ namespace chess
         if (isStalemate(!currentPlayer->getColor()))
         {
             clock.stop();
-            status = GameStatus::stalemate;
+            state = GameState::stalemate;
         }
         else if (isCheckmated(!currentPlayer->getColor()))
         {
             clock.stop();
-            status = (currentPlayer->getColor() == Color::white) ? GameStatus::whiteCheckmates : GameStatus::blackCheckmates;
+            state = (currentPlayer->getColor() == Color::white) ? GameState::whiteCheckmates : GameState::blackCheckmates;
         }
         else
         {
@@ -45,7 +45,7 @@ namespace chess
         clock = ChessClock{};
         board = Chessboard{};
         currentPlayer = &players.first;
-        status = GameStatus::playing;
+        state = GameState::playing;
         boardSetup();
     }
 
@@ -78,7 +78,7 @@ namespace chess
 
     bool Chess::isLegalMove(Position from, Position to) const
     {
-        return status == GameStatus::playing &&
+        return state == GameState::playing &&
                currentPlayer->isOwnPieceAt(board, from) &&
                getPossibleMoves(from).contains(to);
     }

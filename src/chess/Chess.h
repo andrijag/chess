@@ -7,7 +7,7 @@
 #include "Chessboard.h"
 #include "ChessClock.h"
 #include "Color.h"
-#include "GameStatus.h"
+#include "GameState.h"
 #include "Observable.h"
 #include "Player.h"
 #include "Position.h"
@@ -17,13 +17,6 @@ namespace chess
     // TODO: special moves (en passant, castling, pawn promotion)
     class Chess : public Observable
     {
-    private:
-        ChessClock clock;
-        Chessboard board;
-        std::pair<Player, Player> players{Player{Color::white}, Player{Color::black}};
-        Player *currentPlayer{&players.first};
-        GameStatus status{GameStatus::playing};
-
     public:
         Chess();
 
@@ -38,6 +31,13 @@ namespace chess
         bool isCheckmated(Color) const;
         bool hasPossibleMoves(Color) const;
         std::unordered_set<Position> getPossibleMoves(Position) const;
+
+    private:
+        ChessClock clock;
+        Chessboard board;
+        std::pair<Player, Player> players{Player{Color::white}, Player{Color::black}};
+        Player *currentPlayer{&players.first};
+        GameState state{GameState::playing};
     };
 
     void moveChessPiece(Chessboard &, Position, Position);

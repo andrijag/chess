@@ -1,9 +1,9 @@
-#ifndef GAME_STATUS_H
-#define GAME_STATUS_H
+#ifndef GAME_STATE_H
+#define GAME_STATE_H
 
 namespace chess
 {
-    enum class GameStatus
+    enum class GameState
     {
         playing,
         whiteCheckmates,
