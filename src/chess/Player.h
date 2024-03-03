@@ -10,15 +10,15 @@ namespace chess
 {
     class Player
     {
-    private:
-        Color color;
-
     public:
         explicit Player(Color);
 
         Color getColor() const;
         void stopTime(ChessClock &) const;
         bool isOwnPieceAt(const Chessboard &, Position) const;
+
+    private:
+        Color color;
     };
 }
 
