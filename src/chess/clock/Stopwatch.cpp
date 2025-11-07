@@ -14,11 +14,11 @@ namespace chess
     {
         if (!isRunning)
             return;
-        elapsedTime = readTimeInMillis();
+        elapsedTime = readTime();
         isRunning = false;
     }
 
-    Milliseconds Stopwatch::readTimeInMillis() const
+    Milliseconds Stopwatch::readTime() const
     {
         auto totalElapsedTime = elapsedTime;
         if (isRunning)

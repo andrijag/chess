@@ -13,7 +13,7 @@ namespace chess
     public:
         void start();
         void stop();
-        Milliseconds readTimeInMillis() const;
+        Milliseconds readTime() const;
         void reset();
 
     private:

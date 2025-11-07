@@ -14,8 +14,8 @@ namespace chess
         void stopWhite();
         void stopBlack();
         void stop();
-        Milliseconds readWhiteTimeInMillis() const;
-        Milliseconds readBlackTimeInMillis() const;
+        Milliseconds readWhiteTime() const;
+        Milliseconds readBlackTime() const;
         void reset();
 
     private:

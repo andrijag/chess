@@ -25,14 +25,14 @@ namespace chess
         blackStopwatch.stop();
     }
 
-    Milliseconds ChessClock::readWhiteTimeInMillis() const
+    Milliseconds ChessClock::readWhiteTime() const
     {
-        return whiteStopwatch.readTimeInMillis();
+        return whiteStopwatch.readTime();
     }
 
-    Milliseconds ChessClock::readBlackTimeInMillis() const
+    Milliseconds ChessClock::readBlackTime() const
     {
-        return blackStopwatch.readTimeInMillis();
+        return blackStopwatch.readTime();
     }
 
     void ChessClock::reset()
