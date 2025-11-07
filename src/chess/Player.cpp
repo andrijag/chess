@@ -21,7 +21,7 @@ namespace chess
 
     bool Player::isOwnPieceAt(const Chessboard &board, Position position) const
     {
-        auto chessPiece = board.getChessPieceAt(position);
+        auto chessPiece = board.getChessPieceViewAt(position);
         return chessPiece && chessPiece->getColor() == color;
     }
 }

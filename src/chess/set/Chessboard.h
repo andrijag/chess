@@ -22,7 +22,8 @@ namespace chess
         void place(Position, std::unique_ptr<ChessPiece>);
         void move(Position, Position);
         bool contains(Position) const;
-        ChessPiece *getChessPieceAt(Position) const;
+        ChessPiece *getChessPieceAt(Position);
+        const ChessPiece *getChessPieceViewAt(Position) const;
         bool isEmptyAt(Position) const;
 
     private:

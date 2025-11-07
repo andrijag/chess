@@ -107,7 +107,7 @@ namespace chess
             for (auto column = 0; column < board.getNumberOfColumns(); column++)
             {
                 Position square{row, column};
-                if (!board.isEmptyAt(square) && board.getChessPieceAt(square)->getColor() == color && !getPossibleMoves(square).empty())
+                if (!board.isEmptyAt(square) && board.getChessPieceViewAt(square)->getColor() == color && !getPossibleMoves(square).empty())
                     return true;
             }
         return false;
@@ -116,12 +116,12 @@ namespace chess
     std::unordered_set<Position> Chess::getPossibleMoves(Position from) const
     {
         std::unordered_set<Position> possibleMoves;
-        auto movePattern = board.getChessPieceAt(from)->getMovePattern(board, from);
+        auto movePattern = board.getChessPieceViewAt(from)->getMovePattern(board, from);
         for (auto move : movePattern)
         {
             auto boardCopy = board;
             moveChessPiece(boardCopy, from, move);
-            if (!isInCheck(boardCopy, board.getChessPieceAt(from)->getColor()))
+            if (!isInCheck(boardCopy, board.getChessPieceViewAt(from)->getColor()))
                 possibleMoves.insert(move);
         }
         return possibleMoves;
@@ -137,7 +137,7 @@ namespace chess
     bool isInCheck(const Chessboard &board, Color color)
     {
         for (auto square : getSquaresUnderAttack(board, !color))
-            if (!board.isEmptyAt(square) && dynamic_cast<King *>(board.getChessPieceAt(square)))
+            if (!board.isEmptyAt(square) && dynamic_cast<const King *>(board.getChessPieceViewAt(square)))
                 return true;
         return false;
     }
@@ -149,9 +149,9 @@ namespace chess
             for (auto column = 0; column < board.getNumberOfColumns(); column++)
             {
                 Position square = {row, column};
-                if (!board.isEmptyAt(square) && board.getChessPieceAt(square)->getColor() == color)
+                if (!board.isEmptyAt(square) && board.getChessPieceViewAt(square)->getColor() == color)
                 {
-                    auto movePattern = board.getChessPieceAt(square)->getMovePattern(board, square);
+                    auto movePattern = board.getChessPieceViewAt(square)->getMovePattern(board, square);
                     squaresUnderAttack.merge(movePattern);
                 }
             }

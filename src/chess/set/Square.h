@@ -21,7 +21,8 @@ namespace chess
         Square &operator=(Square &&) = default;
 
         Color getColor() const;
-        ChessPiece *getChessPiece() const;
+        ChessPiece *getChessPiece();
+        const ChessPiece *getChessPieceView() const;
         bool isEmpty() const;
         void accept(Visitor &) const override;
 

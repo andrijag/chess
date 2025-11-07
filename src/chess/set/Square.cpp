@@ -25,7 +25,12 @@ namespace chess
         return color;
     }
 
-    ChessPiece *Square::getChessPiece() const
+    ChessPiece *Square::getChessPiece()
+    {
+        return chessPiece.get();
+    }
+
+    const ChessPiece *Square::getChessPieceView() const
     {
         return chessPiece.get();
     }
