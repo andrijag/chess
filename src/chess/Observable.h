@@ -10,11 +10,9 @@ namespace chess
     class Observable
     {
     public:
-        virtual ~Observable() = default;
-
-        virtual void addObserver(Observer *);
-        virtual void removeObserver(Observer *);
-        virtual void updateObservers();
+        void addObserver(Observer *);
+        void removeObserver(Observer *);
+        void updateObservers();
 
     private:
         std::vector<Observer *> observers;
