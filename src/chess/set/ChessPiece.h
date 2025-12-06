@@ -18,7 +18,6 @@ namespace chess
     public:
         virtual ~ChessPiece() = default;
 
-    public:
         virtual Color getColor() const = 0;
         virtual double getValue() const = 0;
         virtual std::unique_ptr<ChessPiece> clone() const = 0;
