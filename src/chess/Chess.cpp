@@ -14,6 +14,14 @@ namespace chess
         boardSetup();
     }
 
+    void Chess::start()
+    {
+        if (state != GameState::notPlaying)
+            return;
+        clock.start();
+        state = GameState::playing;
+    }
+
     void Chess::move(Position from, Position to)
     {
         if (!isLegalMove(from, to))
@@ -40,13 +48,19 @@ namespace chess
         updateObservers();
     }
 
-    void Chess::restart()
+    void Chess::reset()
     {
         clock = ChessClock{};
         board = Chessboard{};
         currentPlayer = &players.first;
-        state = GameState::playing;
+        state = GameState::notPlaying;
         boardSetup();
+    }
+
+    void Chess::restart()
+    {
+        reset();
+        start();
     }
 
     void Chess::boardSetup()
@@ -85,10 +99,7 @@ namespace chess
 
     void Chess::nextPlayer()
     {
-        if (currentPlayer == &players.first)
-            currentPlayer = &players.second;
-        else
-            currentPlayer = &players.first;
+        currentPlayer = (currentPlayer == &players.first) ? &players.second : &players.first;
     }
 
     bool Chess::isStalemate(Color color) const

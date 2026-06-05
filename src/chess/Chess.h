@@ -20,7 +20,9 @@ namespace chess
     public:
         Chess();
 
+        void start();
         void move(Position, Position);
+        void reset();
         void restart();
 
     private:
@@ -37,7 +39,7 @@ namespace chess
         Chessboard board;
         std::pair<Player, Player> players{Player{Color::white}, Player{Color::black}};
         Player *currentPlayer{&players.first};
-        GameState state{GameState::playing};
+        GameState state{GameState::notPlaying};
     };
 
     void moveChessPiece(Chessboard &, Position, Position);

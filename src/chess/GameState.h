@@ -5,6 +5,7 @@ namespace chess
 {
     enum class GameState
     {
+        notPlaying,
         playing,
         whiteCheckmates,
         blackCheckmates,
